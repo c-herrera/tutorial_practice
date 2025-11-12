@@ -31,6 +31,7 @@ public:
 
 private:
 	int runned;
+	int choice;
 };
 
 
@@ -40,72 +41,106 @@ int CTurorialsTest::mRun_TutorialsPoint()
 	// TODO
 	// Use a switch body to separate all the code below
 	
-
-
 	// START Code section from tutorialspoint document 
 
-	// example for typedef and init types
+	// example for typedef and init types	
 	typedef int feet;
 	feet distance = 10;
 	int distance_as_feet = distance;
-
 
 	// example for enums
 	enum color { red, green, blue } mycolor;
 	mycolor = green;
 
-	// Starting again, refreshing old stuff
-	std::cout << " starting again\n";
-	std::cout << " Section 1 " << std::endl;
-	std::cout << " Hello World!\n";
-	std::cout << " Sizes of common types \n";
-	std::cout << " Size of char : " << sizeof(char) << std::endl;
-	std::cout << " Size of int : " << sizeof(int) << std::endl;
-	std::cout << " Size of short int : " << sizeof(short int) << std::endl;
-	std::cout << " Size of long int : " << sizeof(long int) << std::endl;
-	std::cout << " Size of float : " << sizeof(float) << std::endl;
-	std::cout << " Size of double : " << sizeof(double) << std::endl;
-	std::cout << " Size of wchar_t : " << sizeof(wchar_t) << std::endl;
-
-
-	// typedef example 
-	std::cout << " Section 2 " << std::endl;
-	std::cout << " value of feet " << distance << "\n";
-	// enum example
-	std::cout << " Value of enum " << mycolor << "\n";
-
 	//example based for local scope variables
 	int int_a = 2, int_b = 3, int_c = 4;
 	float decimal_f = 3.0 / 2.0;
 
-	std::cout << " Section 3 " << std::endl;
-	std::cout << " Value from values defined " << (int_a + int_b + int_c) << "\n";
-	std::cout << " Value from decimal defined " << decimal_f << "\n";
-
 	int local_scope_int = 10;
 	int scoped_int = 5;
-	std::cout << " Section 4 " << std::endl;
-	std::cout << " Local scope variable " << local_scope_int << "\n";
-	std::cout << " global scope variable " << global_int << "\n";
-	std::cout << " scoped int " << scoped_int << "\n";
 
 	int area;
 	area = LENGTH * WIDTH;
-	std::cout << " Section 5 " << std::endl;
-	std::cout << " using a define value = " << area << "\n";
-	std::cout << " using a define for a new line" << NEWLINE << "continued \n\n";
-
 
 	const int LENGTH_const = 10;
 	const int WIDTH_const = 5;
 	const char NEWLINE_const = '\n';
 	int area_again;
-	area_again = LENGTH_const * WIDTH;
 
-	std::cout << area_again;
-	std::cout << NEWLINE_const;
+	std::cout << "- Choose a example\n";
+	std::cout << "- [1] Variables \n";
+	std::cout << "- [2] typedef & enum \n";
 
-	std::cout << " Section 6 " << std::endl;
+
+	std::cin >> choice;
+	if (isalpha(choice))
+	{
+		std::cout << "\n -Not a valid choice\n";
+		return 1;
+	}
+	else
+	{
+		switch (choice)
+		{
+		case 1:
+			std::cout << "[1]\n";
+			// Starting again, refreshing old stuff
+			std::cout << " starting again\n";
+			std::cout << " Section 1 " << std::endl;
+			std::cout << " Hello World!\n";
+			std::cout << " Sizes of common types \n";
+			std::cout << " Size of char : " << sizeof(char) << std::endl;
+			std::cout << " Size of int : " << sizeof(int) << std::endl;
+			std::cout << " Size of short int : " << sizeof(short int) << std::endl;
+			std::cout << " Size of long int : " << sizeof(long int) << std::endl;
+			std::cout << " Size of float : " << sizeof(float) << std::endl;
+			std::cout << " Size of double : " << sizeof(double) << std::endl;
+			std::cout << " Size of wchar_t : " << sizeof(wchar_t) << std::endl;
+			break;
+		case 2:
+			std::cout << "[2]\n";
+			// typedef example 
+			std::cout << " Section 2 " << std::endl;
+			std::cout << " value of feet " << distance << "\n";
+			// enum example
+			std::cout << " Value of enum " << mycolor << "\n";
+			break;
+		case 3:
+			std::cout << "[3]\n";
+			std::cout << " Section 3 " << std::endl;
+			std::cout << " Value from values defined " << (int_a + int_b + int_c) << "\n";
+			std::cout << " Value from decimal defined " << decimal_f << "\n";
+			break;
+
+		case 4:
+			std::cout << "[4]\n";
+			std::cout << " Section 4 " << std::endl;
+			std::cout << " Local scope variable " << local_scope_int << "\n";
+			std::cout << " global scope variable " << global_int << "\n";
+			std::cout << " scoped int " << scoped_int << "\n";
+			break;
+		case 5 :
+			std::cout << "[5]\n";
+			std::cout << " Section 5 " << std::endl;
+			std::cout << " using a define value = " << area << "\n";
+			std::cout << " using a define for a new line" << NEWLINE << "continued \n\n";
+
+			area_again = LENGTH_const * WIDTH;
+
+			std::cout << area_again;
+			std::cout << NEWLINE_const;
+
+			break;
+		case 6:
+			std::cout << "[6]\n";
+			
+			break;
+
+		default:
+			std::cout << "\n Not a valid choice\n";
+			break;
+		}
+	}
 
 
 	// END Code section from tutorialspoint document 
@@ -796,13 +831,15 @@ int main()
 	CTurorialsTest cTests;
 	int choice = 0;
 
+
+
 	std::cout << "- Run Tutorials point sample code (1)\n- Run CISCO net academy code sample code (2)\n";
-	std::cout << "Type a choice : ";
+	std::cout << " Type a choice : ";
 	std::cin >> choice;
 
-	if (!isalpha(choice))
+	if (isalpha(choice))
 	{
-		std::cout << "\nNot a number, try again\n";
+		std::cout << "\n Not a number, try again\n";
 	}
 	else
 	{
@@ -810,7 +847,7 @@ int main()
 		{
 		case 1:
 			std::cout << "RUnning Tutorials point samples\n";
-			//cTests.mRun_TutorialsPoint();
+			cTests.mRun_TutorialsPoint();
 			break;
 		case 2:
 			std::cout << "Running CISCO samples\n";
